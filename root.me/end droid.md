@@ -55,7 +55,7 @@ uid=2000(shell) gid=2000(shell) groups=1003(graphics),1004(input),1007(log),1011
 ```
 I successfully connected to ADB and entered the shell as uid=2000(shell)!
 
-Upon trying to read the flag file `/data/media/0/passwd` (the same as ‘/sdcard’) system returns `Permission denied` because the file permissions are set to `-r--r----- root sdcard_r`. I already in the sdcard_r group but android restricts access via SELinux and sdcardfs, that's why I need root.
+Upon trying to read the flag file `/data/media/0/passwd` (the same as ‘/sdcard’) system returns `Permission denied` because the file permissions are set to `-r--r----- root sdcard_r`. I'm already in the sdcard_r group but android restricts access via SELinux and sdcardfs, that's why I need root.
 ```bash
 127|uid=2000(shell) gid=2000(shell) groups=1003(graphics),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats)@x86:/sdcard $ cat passwd                                
 /system/bin/sh: cat: passwd: Permission denied
