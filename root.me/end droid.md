@@ -79,6 +79,6 @@ uid=0(root) gid=0(root)@x86:/ # cat /data/media/0/passwd
 ```
 
 ## 5. Conclusion & Remediation
-The root was get due to a boot2root: an unauthenticated Android Debug Bridge (ADB) on debug build (`userdebug`) was open directly to the internet on port `5555`.
+The root was got due to a boot2root: an unauthenticated Android Debug Bridge (ADB) on debug build (`userdebug`) was open directly to the internet on port `5555`.
 you need to:
 enable ADB authorization via RSA keys, use release builds (`user`) instead of debugs (`userdebug`) and disable ADB via wireless mode or close inbound connection to port `5555` by using firewall.
