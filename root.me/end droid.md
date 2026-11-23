@@ -38,9 +38,9 @@ there are a couple of interesting ports:
 port 8080/tcp on 212.83.175.116 – HTTP web server
 port 5555/tcp on 212.83.175.116 – Android Debug Bridge
 
-A 8080 HTTP port is using for running web applications without root (get the a challenge validation flag (Realistic)), and will not be needed for getting the machine validation flag.
+8080 HTTP port is using for running web applications without root (get the a challenge validation flag (Realistic)), and will not be needed for getting the machine validation flag.
 
-An 5555 Android Debug Bridge (ADB) port is using for connecting to device via ADB (and in the future for getting  the machine validation flag).
+5555 Android Debug Bridge (ADB) port is using for connecting to device via ADB (and in the future for getting  the machine validation flag).
 
 
 ## 2. Entry point
