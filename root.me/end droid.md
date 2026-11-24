@@ -2,12 +2,12 @@
 
 ## Task description
 * **os:** Android (x86)
-* **goal:** get access to device, get root access and read flag in `/data/media/0/passwd`.
+* **goal:** Get access to device, get root access and read flag in `/data/media/0/passwd`.
 
 ---
 
 ## 1. Reconnaissance
-at first, I pinged the server to make sure it was reachable
+At first, I pinged the server to make sure it was reachable
 ```bash
 rifa@Rifa88:~$ ping -c 3 ctf11.root-me.org
 PING ctf11.root-me.org (212.83.175.116) 56(84) bytes of data.
@@ -19,7 +19,7 @@ PING ctf11.root-me.org (212.83.175.116) 56(84) bytes of data.
 3 packets transmitted, 3 received, 0% packet loss, time 2001ms
 rtt min/avg/max/mdev = 77.685/84.085/94.654/7.528 ms
 ```
-then I scanned all tcp ports with `nmap`:
+Then I scanned all tcp ports with `nmap`:
 ```bash
 rifa@Rifa88:~$ sudo nmap -sS -p- --min-rate=2000 -v ctf11.root-me.org
 Starting Nmap 7.95 ( https://nmap.org ) at 2026-11-23 22:03 MSK
@@ -33,7 +33,7 @@ Scanning ctf11.root-me.org (212.83.175.116) [65535 ports]
 Discovered open port 8080/tcp on 212.83.175.116
 Discovered open port 5555/tcp on 212.83.175.116
 ```
-there are a couple of interesting ports:
+There are a couple of interesting ports:
 
 port 8080/tcp on 212.83.175.116 – HTTP web server
 port 5555/tcp on 212.83.175.116 – Android Debug Bridge
@@ -80,5 +80,5 @@ uid=0(root) gid=0(root)@x86:/ # cat /data/media/0/passwd
 
 ## 5. Conclusion & Remediation
 The root was got due to a boot2root: an unauthenticated Android Debug Bridge (ADB) on debug build (`userdebug`) was open directly to the internet on port `5555`.
-you need to:
-enable ADB authorization via RSA keys, use release builds (`user`) instead of debugs (`userdebug`) and disable ADB via wireless mode or close inbound connection to port `5555` by using firewall.
+You need to:
+Enable ADB authorization via RSA keys, use release builds (`user`) instead of debugs (`userdebug`) and disable ADB via wireless mode or close inbound connection to port `5555` by using firewall.
